@@ -189,4 +189,4 @@ with DAG(
 
     rows = collect_samples_now()
     inserted = load_to_postgres(rows)
-    verify_rowcount().set_upstream(inserted)  # ensure verify runs after load
+    verify_rowcount().set_upstream(inserted)  # ensure verify runs after load....
