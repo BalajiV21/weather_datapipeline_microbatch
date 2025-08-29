@@ -2,4 +2,3 @@
 apache-airflow-providers-http
 apache-airflow-providers-postgres
 psycopg2-binary
-

@@ -171,22 +171,7 @@ with DAG(
         print(f"[load_to_postgres] Inserted {len(vals)} rows.")
         return len(vals)
 
-    @task()
-    def verify_rowcount() -> int:
-        """
-        Log and return total row count in weather_data so you can see it increasing.
-        """
-        pg = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
-        conn = pg.get_conn()
-        cur = conn.cursor()
-        if POSTGRES_SCHEMA:
-            cur.execute(f"SET search_path TO {POSTGRES_SCHEMA};")
-        cur.execute("SELECT COUNT(*) FROM weather_data;")
-        n = cur.fetchone()[0]
-        cur.close()
-        print(f"[verify_rowcount] weather_data total rows = {n}")
-        return n
+
 
     rows = collect_samples_now()
     inserted = load_to_postgres(rows)
-    verify_rowcount().set_upstream(inserted)  # ensure verify runs after load....
