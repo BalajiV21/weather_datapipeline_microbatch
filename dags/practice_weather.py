@@ -16,7 +16,7 @@ ENDPOINT = (
     f"&longitude={LON}&current_weather=true"
 )
 
-# Save under include/data so it’s visible on your host
+# Save under include/data so it’s visible on your host.
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = PROJECT_ROOT / "include" / "data" / "practice_weather.json"
 def fetch_and_save():
