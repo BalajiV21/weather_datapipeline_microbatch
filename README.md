@@ -1,1 +1,1 @@
-Weather data pipeline using Micro Batch processing  
+Weather data pipeline using Micro Batch processing 
